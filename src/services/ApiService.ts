@@ -13,7 +13,7 @@ import {
   StrikeAnalysis,
 } from '../types';
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://backend-15-ie19.onrender.com';
 
 // Cache for API responses
 const apiCache = new Map<string, { data: any; timestamp: number }>();

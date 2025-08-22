@@ -1,0 +1,221 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@layer base {
+  :root {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 142 76% 36%;
+    --primary-foreground: 210 40% 2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 142 76% 36%;
+    --radius: 0.5rem;
+    
+    /* Trading specific colors */
+    --bullish: 142 76% 36%;
+    --bearish: 0 62.8% 30.6%;
+    --neutral: 215 20.2% 65.1%;
+    --high-oi: 45 93% 47%;
+    --high-volume: 217 91% 60%;
+    --atm: 142 76% 36%;
+    --itm: 45 93% 47%;
+    --otm: 215 20.2% 65.1%;
+    
+    /* Font Awesome CSS variables integration */
+    --fa-primary-color: hsl(var(--primary));
+    --fa-secondary-color: hsl(var(--secondary));
+    --fa-success-color: hsl(var(--bullish));
+    --fa-danger-color: hsl(var(--bearish));
+    --fa-warning-color: hsl(var(--high-oi));
+    --fa-info-color: hsl(var(--high-volume));
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 142 76% 36%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 142 76% 36%;
+    
+    /* Trading specific colors for light mode */
+    --bullish: 142 76% 36%;
+    --bearish: 0 84.2% 60.2%;
+    --neutral: 215.4 16.3% 46.9%;
+    --high-oi: 45 93% 47%;
+    --high-volume: 217 91% 60%;
+    --atm: 142 76% 36%;
+    --itm: 45 93% 47%;
+    --otm: 215.4 16.3% 46.9%;
+  }
+
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  
+  .font-mono {
+    font-family: "JetBrains Mono", "Consolas", "Monaco", monospace;
+  }
+}
+
+@layer components {
+  /* Option Table Components */
+  .option-table {
+    @apply w-full border-collapse;
+  }
+  
+  .option-cell {
+    @apply px-2 py-1 text-xs border border-border;
+  }
+  
+  /* Trading State Classes */
+  .option-cell-bullish {
+    @apply bg-bullish/10 text-bullish;
+  }
+  
+  .option-cell-bearish {
+    @apply bg-bearish/10 text-bearish;
+  }
+  
+  .option-cell-neutral {
+    @apply bg-neutral/10 text-neutral;
+  }
+  
+  .option-cell-high-oi {
+    background-color: hsl(var(--high-oi) / 0.1);
+    color: hsl(var(--high-oi));
+    @apply font-semibold;
+  }
+  
+  .option-cell-high-volume {
+    background-color: hsl(var(--high-volume) / 0.1);
+    color: hsl(var(--high-volume));
+    @apply font-semibold;
+  }
+  
+  .option-cell-atm {
+    background-color: hsl(var(--atm) / 0.2);
+    color: hsl(var(--atm));
+    @apply font-bold;
+  }
+  
+  /* Price and Strike Formatting */
+  .strike-price {
+    @apply font-mono font-bold text-center;
+  }
+  
+  .price-positive {
+    color: hsl(var(--bullish));
+    @apply font-medium;
+  }
+  
+  .price-negative {
+    color: hsl(var(--bearish));
+    @apply font-medium;
+  }
+  
+  .price-neutral {
+    color: hsl(var(--neutral));
+  }
+  
+  /* Animation Classes */
+  .price-flash {
+    @apply animate-price-flash;
+  }
+  
+  /* Font Awesome Integration */
+  .fa-icon {
+    @apply inline-block;
+  }
+  
+  .fa-icon-sm {
+    @apply text-sm;
+  }
+  
+  .fa-icon-md {
+    @apply text-base;
+  }
+  
+  .fa-icon-lg {
+    @apply text-lg;
+  }
+  
+  .fa-icon-xl {
+    @apply text-xl;
+  }
+}
+
+@layer utilities {
+  /* Table Utilities */
+  .table-fixed-header {
+    @apply sticky top-0 z-10 bg-card shadow-sm;
+  }
+  
+  .table-striped > tbody > tr:nth-child(odd) {
+    @apply bg-muted/5;
+  }
+  
+  .table-hover > tbody > tr:hover {
+    @apply bg-accent/10 transition-colors duration-150;
+  }
+}
+
+/* Custom Scrollbar Styles */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: #a1a1aa #404040;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background-color: #404040;
+  border-radius: 9999px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: #a1a1aa;
+  border-radius: 9999px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background-color: #22c55e;
+}

@@ -1,0 +1,21 @@
+{
+  "short_name": "SMD Trading",
+  "name": "SMD Trading Platform - Live Option Chain Analysis",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "description": "Advanced option chain analysis platform with real-time data, Greeks calculations, and comprehensive trading analytics."
+}

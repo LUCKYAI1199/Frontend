@@ -35,7 +35,7 @@ export const SocketProvider: React.FC<SocketProviderProps> = ({ children }) => {
 
   useEffect(() => {
     // Initialize socket connection
-    const socketInstance = io(process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000', {
+    const socketInstance = io(process.env.REACT_APP_BACKEND_URL || 'https://backend-15-ie19.onrender.com', {
       transports: ['websocket', 'polling'],
       autoConnect: true,
       reconnectionDelay: 2000, // Increase reconnection delay
